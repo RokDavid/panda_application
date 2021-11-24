@@ -28,9 +28,12 @@ public class PandaApplicationSeleniumTest {
 
     @BeforeEach
     public void startup() throws InterruptedException, MalformedURLException {
+        
 
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setPlatform(Platform.LINUX);
+        capabilities.setCapability("marionette", true);
+        WebDriver driver = new FirefoxDriver(capabilities);
 
         // Odwołujemy się do zdalnego silnika Firefox z Selenium Grid
         driver = new RemoteWebDriver(new URL("http://192.168.44.44:4444/wd/hub"), capabilities);
@@ -45,9 +48,21 @@ public class PandaApplicationSeleniumTest {
         Thread.sleep(2000);
     }
 
+    public class Gecko_Driver {
+public static void main(String[] args) throws InterruptedException {
+    System.setProperty("webdriver.gecko.driver", "D:\\\\XXXX\\trunk\\Library\\drivers\\geckodriver.exe");
+    WebDriver driver = new FirefoxDriver();
+    driver.get("http://www.toolsqa.com");
+
+    Thread.sleep(5000);
+    driver.quit();
+}
+
+
+
     @Test
     public void greetings_shouldOpenMainPageThenReturnWelcomeText() {
-        System.out.println("Uruchamiam test 1: Sprawdzenie napisu na stronie głównej");
+        System.out.println("Uruchamiam test 1: Sprawdzenie napisu, ogolnie to jebac selenium");
         WebElement greetingElement = driver.findElement(By.xpath("//p"));
         String greetingText = greetingElement.getText().trim();
         assertEquals("Get your greeting here", greetingText);
