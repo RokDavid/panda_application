@@ -32,8 +32,6 @@ public class PandaApplicationSeleniumTest {
 
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setPlatform(Platform.LINUX);
-        capabilities.setCapability("marionette", true);
-        WebDriver driver = new FirefoxDriver(capabilities);
 
         // Odwołujemy się do zdalnego silnika Firefox z Selenium Grid
         driver = new RemoteWebDriver(new URL("http://192.168.44.44:4444/wd/hub"), capabilities);
