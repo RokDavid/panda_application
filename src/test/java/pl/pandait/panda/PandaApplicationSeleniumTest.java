@@ -29,7 +29,7 @@ public class PandaApplicationSeleniumTest {
     @BeforeEach
     public void startup() throws InterruptedException, MalformedURLException {
 
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setPlatform(Platform.LINUX);
 
         // Odwołujemy się do zdalnego silnika Firefox z Selenium Grid
