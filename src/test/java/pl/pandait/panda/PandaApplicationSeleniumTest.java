@@ -29,7 +29,7 @@ public class PandaApplicationSeleniumTest {
     @BeforeEach
     public void startup() throws InterruptedException, MalformedURLException {
 
-        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setPlatform(Platform.LINUX);
 
         // Odwołujemy się do zdalnego silnika Firefox z Selenium Grid
@@ -47,7 +47,7 @@ public class PandaApplicationSeleniumTest {
 
     @Test
     public void greetings_shouldOpenMainPageThenReturnWelcomeText() {
-        System.out.println("Uruchamiam test 1: Sprawdzenie napisu jebac selenium");
+        System.out.println("Uruchamiam test 1: Sprawdzenie napisu jebac");
         WebElement greetingElement = driver.findElement(By.xpath("//p"));
         String greetingText = greetingElement.getText().trim();
         assertEquals("Get your greeting here", greetingText);
